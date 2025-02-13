@@ -31,22 +31,4 @@ distance_l1 = st.slider("Distance L1 (cm)", 0, 250, 50)
 if st.button("Prédire"):
     # Simulation de prédiction (remplacer avec un modèle réel)
     st.success("Prédiction effectuée avec succès !")
-    st.write("Voici les données saisies :")
-    st.json({
-        "Âge": age,
-        "Sexe": sexe,
-        "Taille (cm)": taille,
-        "Poids (kg)": poids,
-        "Type de pied": type_pied,
-        "Présence de tensions": presence_tension,
-        # "Localisation des tensions": localisation_tensions,
-        "Déséquilibres posturaux": desequilibres_posturaux,
-        "Distances": {
-            "Acromion G": distance_acromion_g,
-            "Acromion D": distance_acromion_d,
-            "EIPS G": distance_eips_g,
-            "EIPS D": distance_eips_d,
-            "T4": distance_t4,
-            "L1": distance_l1
-        }
-    })
+
