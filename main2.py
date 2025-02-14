@@ -29,7 +29,9 @@ with open(model_path3, "rb") as f:
     rules_df = pickle.load(f)
 
 label_encoder_localisation = LabelEncoder()
-df= pd.read_csv(r"C:\Users\yassi\PycharmProjects\datathon\data\df.csv")
+# df= pd.read_csv(r"C:\Users\yassi\PycharmProjects\datathon\data\df.csv")
+csv_path = os.path.join(os.path.dirname(__file__), "data", "df.csv")
+df = pd.read_csv(csv_path)
 # Encodage de la colonne
 df['Localisation des tensions'] = label_encoder_localisation.fit_transform(df['Localisation des tensions'])
 
