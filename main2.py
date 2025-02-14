@@ -3,14 +3,29 @@ import pandas as pd
 import pickle
 from joblib import load
 from sklearn.preprocessing import LabelEncoder
-
+import os
 
 # Charger les modèles
-model_localisation = load(r"C:\Users\yassi\PycharmProjects\datathon\models\model_localisation.joblib")
-model_intensite = load(r"C:\Users\yassi\PycharmProjects\datathon\models\model_intensite.joblib")
+# model_localisation = load(r"C:\Users\yassi\PycharmProjects\datathon\models\model_localisation.joblib")
+# model_intensite = load(r"C:\Users\yassi\PycharmProjects\datathon\models\model_intensite.joblib")
+
+
+
+# Obtenir le chemin du fichier en fonction de l'emplacement du script
+model_path1 = os.path.join(os.path.dirname(__file__), "models", "model_localisation.joblib")
+model_localisation = load(model_path1)
+
+model_path2 = os.path.join(os.path.dirname(__file__), "models", "model_intensite.joblib")
+model_intensite = load(model_path2)
 
 # Charger les règles d'association
-with open(r"C:\Users\yassi\PycharmProjects\datathon\models\regles_association_des.pkl", "rb") as f:
+# with open(r"C:\Users\yassi\PycharmProjects\datathon\models\regles_association_des.pkl", "rb") as f:
+#     rules_df = pickle.load(f)
+
+model_path3 = os.path.join(os.path.dirname(__file__), "models", "regles_association_des.pkl")
+
+# Charger le fichier avec pickle
+with open(model_path3, "rb") as f:
     rules_df = pickle.load(f)
 
 label_encoder_localisation = LabelEncoder()
